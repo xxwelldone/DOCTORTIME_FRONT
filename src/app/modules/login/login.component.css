@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  max-width: 40px;
+}
+.email-input,
+.password-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.email-input > label,
+.password-input > label {
+  align-self: flex-start;
+}
+input {
+  background-color: var(--ice);
+  border: 2px solid var(--light-blue);
+  height: 38px;
+  border-radius: 4px;
+  width: 232px;
+}
+.data {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.login-btn {
+  color: var(--white);
+  width: 128px;
+  height: 48px;
+  background-color: var(--dark-blue);
+  border-radius: 4px;
+}
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+.link {
+  font-weight: 600;
+  color: var(--dark-blue);
+  cursor: pointer;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  margin: 64px;
+}
+@media (min-width: 1014px) {
+  .container {
+    background-color: var(--white);
+    width: 716px;
+    height: 672px;
+    border-radius: 42px;
+  }
+  .bg {
+    background-color: var(--ice);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+}

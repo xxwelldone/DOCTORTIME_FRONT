@@ -1,0 +1,11 @@
+<section class="promotion">
+  <div class="promotion-billboard">
+    <img src="assets/hug.png" alt="" class="billboard-image" />
+    <h2 class="billboard-text">Cuidar de quem sempre cuidou de você</h2>
+  </div>
+  <div class="promotion-boxes">
+    @for (item of promotionBox; track $index) {
+    <div class="box {{ item.color }} {{ item.size }}">{{ item.text }}</div>
+    }
+  </div>
+</section>

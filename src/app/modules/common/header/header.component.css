@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 16px;
+  align-items: center;
+  height: 68px;
+}
+.logo {
+  cursor: pointer;
+}
+.btn {
+  color: var(--white);
+  background-color: var(--dark-blue);
+  padding: 8px 32px;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -1,0 +1,42 @@
+<section class="bg">
+  <div class="container">
+    <form class="form" [formGroup]="profile">
+      <div class="registration">
+        <img class="registration-icon" src="assets/icons/account.svg" alt="" />
+        <h2 class="registration-title">Cadastro: Escolha perfil</h2>
+      </div>
+      <div class="actions">
+        <div class="profile">
+          <div class="profile-option">
+            <input
+              type="radio"
+              name="role"
+              id="profile1"
+              value="user"
+              formControlName="role"
+            />
+            <label for="profile1">Paciente</label>
+          </div>
+          <div class="profile-option">
+            <input
+              type="radio"
+              name="role"
+              id="profile2"
+              value="worker"
+              formControlName="role"
+            />
+
+            <label for="profile2">Funcionário dr.time</label>
+          </div>
+        </div>
+        <button
+          class="next-btn"
+          (click)="onNext()"
+          [disabled]="profile.invalid"
+        >
+          AVANÇAR
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

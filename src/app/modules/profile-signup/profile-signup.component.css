@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 112px;
+  margin: 64px;
+}
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.profile-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 12px;
+  gap: 8px;
+  width: 232px;
+  height: 48px;
+  background-color: var(--gray);
+  border-radius: 4px;
+}
+.profile-option > input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--dark-blue);
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: white;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+.profile-option > input[type="radio"]:checked {
+  background-color: var(--light-blue);
+}
+.profile-option:has(input[type="radio"]:checked) {
+  background-color: var(--light-blue);
+}
+.registration {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+}
+.registration-title {
+  font-size: 1rem;
+}
+.next-btn {
+  color: var(--white);
+  width: 128px;
+  height: 48px;
+  background-color: var(--dark-blue);
+  border-radius: 4px;
+  align-self: flex-end;
+}
+
+@media (min-width: 1014px) {
+  .container {
+    background-color: var(--white);
+    width: 716px;
+    height: 672px;
+    border-radius: 42px;
+  }
+  .bg {
+    background-color: var(--ice);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+}

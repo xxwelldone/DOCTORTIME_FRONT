@@ -1,0 +1,19 @@
+.card-option {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+  width: 268px;
+  height: 54px;
+  border-radius: 4px;
+  padding-inline: 16px;
+  cursor: pointer;
+}
+.light-blue {
+  color: var(--white);
+  background-color: var(--light-blue);
+}
+.purple {
+  color: var(--black);
+  background-color: var(--purple);
+}
