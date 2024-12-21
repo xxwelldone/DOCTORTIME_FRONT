@@ -1,1 +1,58 @@
-<p>user-sign-up works!</p>
+<section class="bg">
+  <div class="container">
+    <form class="form" [formGroup]="userForm">
+      <div class="user-signup">
+        <img class="user-signup-icon" src="assets/icons/account.svg" alt="" />
+        <h2 class="user-signup-title">Cadastro: Preencha seus dados</h2>
+      </div>
+      <div class="data">
+        <div class="input-field">
+          <label for="name">Nome completo</label>
+          <input type="text" id="name" formControlName="name" />
+        </div>
+        <div class="input-field">
+          <label for="cep">CEP</label>
+          <input type="text" id="cep" formControlName="cep" />
+        </div>
+        <div class="input-field">
+          <label for="address">Endereço</label>
+          <input type="text" id="address" formControlName="address" />
+        </div>
+        <div class="input-field">
+          <label for="cpf">CPF</label>
+          <input
+            type="text"
+            id="cpf"
+            formControlName="cpf"
+            mask="000.000.000-00"
+          />
+        </div>
+        <div class="input-field">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" formControlName="email" />
+        </div>
+        <div class="input-field">
+          <label for="password">Senha</label>
+          <input type="password" id="password" formControlName="password" />
+        </div>
+        <div class="input-field">
+          <label for="confirmation">Confirmação de senha</label>
+          <input type="password" id="confirmation" formControlName="confirm" />
+        </div>
+      </div>
+      <div class="actions">
+        <button
+          class="next-btn"
+          (click)="onRegister()"
+          [disabled]="userForm.invalid"
+          [ngClass]="{ disabled: userForm.invalid }"
+        >
+          CONFIRMAR
+        </button>
+        @if (warning) {
+        <p class="warning">As senhas não são iguais</p>
+        }
+      </div>
+    </form>
+  </div>
+</section>
