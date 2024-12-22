@@ -14,6 +14,8 @@ import { ZipCodeService } from '../../services/zip-code.service';
 import { catchError, map, Observable } from 'rxjs';
 import { zipCode } from '../../models/zipCode';
 import { NgxMaskDirective } from 'ngx-mask';
+import { UserEndpointService } from '../../services/user-endpoint.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-sign-up',
@@ -23,9 +25,13 @@ import { NgxMaskDirective } from 'ngx-mask';
   styleUrl: './user-sign-up.component.css',
 })
 export class UserSignUpComponent implements OnInit {
-  constructor(private zipCodeService: ZipCodeService) {}
+  constructor(
+    private zipCodeService: ZipCodeService,
+    private userAPI: UserEndpointService,
+    private router: Router
+  ) {}
   public warning: Boolean = false;
-  userForm = new FormGroup({
+  userForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
     cep: new FormControl('', [Validators.required]),
     address: new FormControl('', [Validators.required]),
@@ -60,7 +66,16 @@ export class UserSignUpComponent implements OnInit {
   }
   onRegister() {
     const payload = this.destructuringForm();
-    console.log(this.userForm);
+
+    this.userAPI.create(payload).subscribe({
+      complete: () => {
+        this.router.navigate(['/login']);
+        console.log('feito');
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
   observeZipCode() {
     this.userForm.get('cep')?.valueChanges.subscribe((value) => {
@@ -76,11 +91,8 @@ export class UserSignUpComponent implements OnInit {
   getAddress(value: string) {
     this.zipCodeService.getAddress(value).subscribe({
       next: (value) => {
-        console.log(value.erro);
-
         if (!value.erro) {
           const address = new zipCode(value).formattingAddress();
-          console.log(address);
           this.userForm.patchValue({
             address: address,
           });
@@ -90,7 +102,9 @@ export class UserSignUpComponent implements OnInit {
           });
         }
       },
-      error: (err) => {},
+      error: (err) => {
+        console.log(err);
+      },
     });
   }
 }
