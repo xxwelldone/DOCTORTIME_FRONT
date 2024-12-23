@@ -63,8 +63,8 @@ input {
 @media (min-width: 1014px) {
   .container {
     background-color: var(--white);
-    width: 716px;
-    height: 672px;
+    width: 616px;
+    /* height: 672px; */
     border-radius: 42px;
   }
   .bg {
