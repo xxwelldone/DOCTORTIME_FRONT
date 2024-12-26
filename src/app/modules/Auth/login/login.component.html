@@ -1,6 +1,6 @@
 <section class="bg">
   <div class="container">
-    <form class="form">
+    <form class="form" [formGroup]="loginForm">
       <div class="login">
         <img class="login-icon" src="assets/icons/account.svg" alt="" />
         <p class="login-title">Login</p>
@@ -8,18 +8,20 @@
       <div class="data">
         <div class="email-input">
           <label for="email">Digite seu e-mail</label>
-          <input type="email" id="email" />
+          <input type="email" id="email" formControlName="email" />
         </div>
         <div class="password-input">
           <label for="">Digite sua senha</label>
-          <input type="password" />
+          <input type="password" formControlName="password" />
         </div>
       </div>
       <div class="actions">
-        <button class="login-btn">ENTRAR</button>
+        <button class="login-btn" (click)="onLogin()">ENTRAR</button>
         <p>
           Não tem conta?
-          <span class="link" [routerLink]="['/signup']">Crie uma aqui</span>
+          <span class="link" [routerLink]="['/auth/signup']"
+            >Crie uma aqui</span
+          >
         </p>
       </div>
     </form>

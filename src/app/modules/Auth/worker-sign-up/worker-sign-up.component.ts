@@ -10,7 +10,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { NgxMaskDirective } from 'ngx-mask';
-import { WorkerEndpointService } from '../../services/worker-endpoint.service';
+import { WorkerEndpointService } from '../../../services/worker-endpoint.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -64,7 +64,7 @@ export class WorkerSignUpComponent implements OnInit {
 
     this.workerAPI.create(payload).subscribe({
       complete: () => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/auth/login']);
       },
       error: (err) => {
         console.log(err);

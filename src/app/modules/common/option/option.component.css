@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-blue);
+  border-radius: 100%;
+  width: 52px;
+  height: 52px;
+}
+.text {
+  font-size: 1.14rem;
+}

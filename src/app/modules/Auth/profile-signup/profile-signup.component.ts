@@ -26,6 +26,6 @@ export class ProfileSignupComponent {
   onNext() {
     const role = this.profile.get('role')?.value;
 
-    this.router.navigate([`signup/${role}`]);
+    this.router.navigate([`/auth/signup/${role}`]);
   }
 }

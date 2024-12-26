@@ -10,11 +10,11 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
-import { ZipCodeService } from '../../services/zip-code.service';
+import { ZipCodeService } from '../../../services/zip-code.service';
 import { catchError, map, Observable } from 'rxjs';
-import { zipCode } from '../../models/zipCode';
+import { zipCode } from '../../../models/zipCode';
 import { NgxMaskDirective } from 'ngx-mask';
-import { UserEndpointService } from '../../services/user-endpoint.service';
+import { UserEndpointService } from '../../../services/user-endpoint.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -69,8 +69,7 @@ export class UserSignUpComponent implements OnInit {
 
     this.userAPI.create(payload).subscribe({
       complete: () => {
-        this.router.navigate(['/login']);
-        console.log('feito');
+        this.router.navigate(['/auth/login']);
       },
       error: (err) => {
         console.log(err);

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CardOptionComponent } from '../card-option/card-option.component';
 import { PromotionComponent } from '../promotion/promotion.component';
+import { CarouselComponent } from '../../common/carousel/carousel.component';
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [CardOptionComponent, PromotionComponent],
+  imports: [CardOptionComponent, PromotionComponent, CarouselComponent],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css',
 })
@@ -33,7 +34,7 @@ export class LandingPageComponent {
       path: 'assets/icons/account_black.svg',
       text: 'Faça uma conta',
       color: 'purple',
-      link: '/signup',
+      link: '/auth/signup',
     },
   ];
 }

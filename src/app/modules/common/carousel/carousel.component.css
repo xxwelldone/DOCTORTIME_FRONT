@@ -1,0 +1,31 @@
+.carousel {
+  background-color: var(--light-blue);
+}
+.title {
+  font-weight: 600;
+  color: var(--white);
+  position: absolute;
+  z-index: 99;
+  bottom: 24px;
+  margin: 0 16px;
+  text-shadow: 1px 1px 5px var(--light-blue);
+}
+.active {
+  position: relative;
+}
+@media (min-width: 768px) {
+  .carousel-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .title {
+    margin: 0 84px;
+  }
+}
+@media (min-width: 1024px) {
+  .title {
+    max-width: 24ch;
+    top: 64px;
+  }
+}

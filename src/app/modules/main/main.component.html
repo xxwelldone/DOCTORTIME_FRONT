@@ -1,0 +1,15 @@
+<app-carousel></app-carousel>
+<section class="bg">
+  <h1 class="title">Bem vindo, USER</h1>
+  <div class="container">
+    <div class="painel">
+      @for (item of UserOptions; track $index) {
+      <app-option
+        [content]="item.text"
+        [pathIMG]="item.imgPath"
+        [pathURL]="item.url"
+      ></app-option>
+      }
+    </div>
+  </div>
+</section>
