@@ -6,9 +6,12 @@ import { ProfileSignupComponent } from './modules/Auth/profile-signup/profile-si
 import { UserSignUpComponent } from './modules/Auth/user-sign-up/user-sign-up.component';
 import { WorkerSignUpComponent } from './modules/Auth/worker-sign-up/worker-sign-up.component';
 import { MainComponent } from './modules/main/main.component';
+import { MakeAppointmentComponent } from './modules/make-appointment/make-appointment.component';
+import path from 'path';
+import { SelectionComponent } from './modules/selection/selection.component';
 
 export const routes: Routes = [
-  { path: '', component: LandingPageComponent },
+  { path: '', component: LandingPageComponent, pathMatch: 'full' },
   {
     path: 'auth',
     children: [
@@ -26,5 +29,18 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: 'main', component: MainComponent },
+  {
+    path: 'home',
+    children: [
+      { path: '', component: MainComponent },
+      {
+        path: 'makeappointment',
+        children: [
+          { path: '', component: MakeAppointmentComponent },
+          { path: 'selection', component: SelectionComponent },
+        ],
+      },
+    ],
+  },
+  { path: '**', redirectTo: '' },
 ];

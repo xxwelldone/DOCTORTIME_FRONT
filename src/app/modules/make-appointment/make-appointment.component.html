@@ -1,0 +1,67 @@
+<section class="bg">
+  <div class="container">
+    <form class="form" [formGroup]="appointmentForm">
+      <div class="make-appointment">
+        <img
+          class="make-appointment-icon"
+          src="assets/icons/myappointment-blue.svg"
+          alt=""
+        />
+        <h2 class="make-appointment-title">Marcação</h2>
+      </div>
+      <div class="modality">
+        <p class="modality-label">Modalidade</p>
+        <div class="modality-options">
+          <div class="modality-option">
+            <input
+              type="radio"
+              name="modality"
+              id="modality-1"
+              value="ONLINE"
+              formControlName="modality"
+            />
+            <label for="modality-1">Online</label>
+          </div>
+          <div class="modality-option">
+            <input
+              type="radio"
+              name="modality"
+              id="modality-2"
+              value="PRESENCIAL"
+              formControlName="modality"
+            />
+
+            <label for="modality-2">Presencial</label>
+          </div>
+        </div>
+      </div>
+      <div class="data">
+        <div class="input-field">
+          <label for="name">Especialidade</label>
+          <select name="specialty" id="specialty" formControlName="specialty">
+            @for (item of arraySpecialty; track $index) {
+            <option [value]="item">{{ item }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="input-field">
+          <label for="date">Data da consulta</label>
+          <input type="date" id="date" formControlName="date" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="next-btn" (click)="onBack()">Voltar</button>
+        <button
+          class="next-btn"
+          (click)="onNext()"
+          [disabled]="appointmentForm.invalid"
+          [ngClass]="{ disabled: appointmentForm.invalid }"
+        >
+          Avançar
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

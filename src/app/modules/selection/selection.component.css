@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.professionals {
+  display: flex;
+  flex-direction: column;
+  gap: 62px;
+  margin: 64px;
+}
+.specialty {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+}
+.specialty-title {
+  font-size: 1rem;
+}
+
+.next-btn {
+  color: var(--white);
+  width: 128px;
+  height: 48px;
+  background-color: var(--dark-blue);
+  border-radius: 4px;
+}
+
+.warning {
+  background-color: var(--purple);
+  padding: 14px;
+}
+.disabled {
+  background-color: var(--gray);
+}
+
+@media (min-width: 1014px) {
+  .container {
+    background-color: var(--white);
+    border-radius: 42px;
+  }
+  .bg {
+    background-color: var(--ice);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 110px;
+  }
+}

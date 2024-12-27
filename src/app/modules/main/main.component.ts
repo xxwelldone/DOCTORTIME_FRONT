@@ -19,7 +19,7 @@ export class MainComponent {
     },
     {
       text: 'Marcação',
-      url: '',
+      url: '/home/makeappointment',
       imgPath: '/assets/icons/appointment.svg',
     },
     {

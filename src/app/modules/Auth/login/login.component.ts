@@ -29,7 +29,7 @@ export class LoginComponent {
         sessionStorage.setItem('token', response.token);
       },
       complete: () => {
-        this.router.navigate(['main']);
+        this.router.navigate(['home']);
       },
       error: (err) => {
         console.log(err);

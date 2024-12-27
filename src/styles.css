@@ -6,7 +6,9 @@
   --white: #fff;
   --black: #000;
   --ocean: #0fe3f2;
+  --dark-ice: #ecf8ff;
   --ice: #edf4f9;
+  --dark-gray: #424242;
   --gray: #d9d9d9;
 }
 *,
@@ -58,4 +60,10 @@ a {
 button {
   border: none;
   font-family: "Inter", serif;
+}
+dl,
+ol,
+ul {
+  margin-bottom: 0;
+  padding-left: 0;
 }

@@ -1,0 +1,130 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 62px;
+  margin: 64px;
+}
+.modality {
+  display: flex;
+  flex-direction: column;
+}
+.modality-options {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.modality-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 12px;
+  gap: 8px;
+  width: 122px;
+  height: 32px;
+  background-color: var(--gray);
+  border-radius: 4px;
+}
+.modality-option > input[type="radio"] {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--dark-blue);
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: white;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+.modality-option > input[type="radio"]:checked {
+  background-color: var(--light-blue);
+}
+.modality-option:has(input[type="radio"]:checked) {
+  background-color: var(--light-blue);
+}
+.make-appointment {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 14px;
+}
+.make-appointment-title {
+  font-size: 1rem;
+}
+.input-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+#date,
+select {
+  padding-inline: 8px;
+}
+label,
+.modality-label {
+  font-weight: 600;
+}
+.modality-label {
+  margin-bottom: 13px;
+}
+
+.next-btn {
+  color: var(--white);
+  width: 128px;
+  height: 48px;
+  background-color: var(--dark-blue);
+  border-radius: 4px;
+}
+.actions {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 28px;
+}
+input,
+select {
+  background-color: var(--ice);
+  border: 2px solid var(--light-blue);
+  height: 38px;
+  border-radius: 4px;
+  width: 252px;
+}
+.data {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.input-field > .ng-touched.ng-invalid {
+  border: 2px solid var(--purple);
+}
+.warning {
+  background-color: var(--purple);
+  padding: 14px;
+}
+.disabled {
+  background-color: var(--gray);
+}
+
+@media (min-width: 1014px) {
+  .container {
+    background-color: var(--white);
+    width: 616px;
+    border-radius: 42px;
+  }
+  .bg {
+    background-color: var(--ice);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 110px;
+  }
+}
