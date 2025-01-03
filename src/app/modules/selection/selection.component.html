@@ -7,9 +7,13 @@
           src="assets/icons/stethoscope_blue.svg"
           alt=""
         />
-        <h2 class="specialty-title">Especialidades: {{ specialty }}</h2>
+        <h2 class="specialty-title">
+          Especialidades: {{ inicialDetails.specialty }}
+        </h2>
       </div>
-      <app-card-selection></app-card-selection>
+      @for (item of doctorArray; track $index) {
+      <app-card-selection [doctorDetails]="item"></app-card-selection>
+      }
     </div>
   </div>
 </section>

@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AppointmentSearch } from '../../models/Appointment/AppointmentSearch';
+import { SharedAppointmentService } from '../../services/shared-appointment.service';
 
 @Component({
   selector: 'app-make-appointment',
@@ -17,7 +17,10 @@ import { AppointmentSearch } from '../../models/Appointment/AppointmentSearch';
   styleUrl: './make-appointment.component.css',
 })
 export class MakeAppointmentComponent {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private sharedAppointmentService: SharedAppointmentService
+  ) {}
   public arraySpecialty: string[] = [
     'CARDIOLOGIA',
     'DERMATOLOGIA',
@@ -44,13 +47,9 @@ export class MakeAppointmentComponent {
     this.router.navigate(['/home']);
   }
   onNext() {
-    const obj = this.appointmentForm;
-
+    this.sharedAppointmentService.setSharedAppointment(
+      this.appointmentForm.getRawValue()
+    );
     this.router.navigate(['home/makeappointment/selection']);
-  }
-  stringToDate(date: string, time: string) {
-    const [year, month, day] = date.split('-').map(Number);
-    const [hour, minute] = time.split(':').map(Number);
-    return new Date(year, month - 1, day, hour, minute);
   }
 }

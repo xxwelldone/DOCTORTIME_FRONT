@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 0 16px;
   align-items: center;
   height: 68px;
@@ -13,5 +13,8 @@
   background-color: var(--dark-blue);
   padding: 8px 32px;
   border-radius: 4px;
+  cursor: pointer;
+}
+.header-menu {
   cursor: pointer;
 }

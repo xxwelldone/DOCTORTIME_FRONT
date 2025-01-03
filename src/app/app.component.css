@@ -1,0 +1,17 @@
+app-aside-menu {
+  display: flex;
+  justify-content: center;
+  width: 242px;
+  height: 100vh;
+  position: absolute;
+  background-color: var(--white);
+  z-index: 999;
+  right: 0;
+}
+
+@media (min-width: 1024px) {
+  app-aside-menu {
+    width: 372px;
+    background-color: var(--ice);
+  }
+}

@@ -22,14 +22,34 @@
   font-size: 1rem;
 }
 
-.next-btn {
+.btn {
   color: var(--white);
   width: 128px;
   height: 48px;
-  background-color: var(--dark-blue);
   border-radius: 4px;
 }
-
+.red {
+  background-color: var(--red);
+}
+.blue {
+  background-color: var(--dark-blue);
+}
+.confirmation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.confirmation-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 52px;
+}
+.actions {
+  display: flex;
+  gap: 28px;
+}
 .warning {
   background-color: var(--purple);
   padding: 14px;

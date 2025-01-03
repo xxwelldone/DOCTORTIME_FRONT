@@ -2,24 +2,41 @@
   <div class="profile-pic">
     <img
       class="image-pic"
-      src="/assets/91e5dfd9-20f6-496a-91b2-56e0ca58ccee 1.png"
+      src="{{ doctorDetails.photoUrl }}"
       alt=""
       srcset=""
     />
   </div>
   <div class="info">
     <div class="profile-info">
-      <p class="profile-name">Leslee Moss</p>
-      <p class="profile-crm">CRM 442256</p>
-      <p class="profile-address">Av. Paulista, 234, Bela Vista - SP</p>
+      <p class="profile-name">{{ doctorDetails.name }}</p>
+      <p class="profile-crm">CRM {{ doctorDetails.CRM }}</p>
+      <p class="profile-address">{{ doctorDetails.address }}</p>
     </div>
-    @if (expand ) {
-    <ul class="time">
+    @if(expand) {
+    <ul class="time" (click)="$event.stopPropagation()">
       @for (item of availableTimes; track $index) {
 
-      <li class="time-option">{{ item }}</li>
+      <li
+        class="time-option"
+        [ngClass]="{ selected: item === time }"
+        (click)="selectTime(item)"
+      >
+        {{ item }}
+      </li>
       }
     </ul>
     }
   </div>
 </div>
+@if(selected) {
+<div class="confirmation">
+  <div class="confirmation-item">
+    <p>Confirmar cancelamento da consulta?</p>
+    <div class="actions">
+      <button class="btn blue" (click)="onConfirmation()">Confirmar</button>
+      <button class="btn red" (click)="onCancel()">Cancelar</button>
+    </div>
+  </div>
+</div>
+}

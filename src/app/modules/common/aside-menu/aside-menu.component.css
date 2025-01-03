@@ -1,0 +1,27 @@
+.menu {
+  margin: 10px 12px;
+}
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+.menu-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  padding: 18px;
+  border: 2px solid var(--white);
+  cursor: pointer;
+}
+.menu-item:hover {
+  border: 2px solid var(--light-blue);
+  background-color: var(--white);
+}
+@media (min-width: 1024px) {
+  .menu-item {
+    border: 2px solid var(--ice);
+  }
+}

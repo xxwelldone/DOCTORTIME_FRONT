@@ -8,7 +8,14 @@
       [routerLink]="['']"
     />
   </div>
+  @if (isLogged) {
+
+  <div class="header-menu" (click)="onClick()">
+    <img src="/assets/icons/menu.svg" alt="" srcset="" />
+  </div>
+  } @else {
   <div class="header-btn">
     <button class="btn" [routerLink]="['/auth/login']">LOGIN</button>
   </div>
+  }
 </header>

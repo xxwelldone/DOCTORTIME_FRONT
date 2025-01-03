@@ -35,7 +35,7 @@ export class MainComponent {
     {
       text: 'Sair',
       url: '',
-      imgPath: '/assets/icons/logout.svg',
+      imgPath: '/assets/icons/logout-white.svg',
     },
   ];
 }

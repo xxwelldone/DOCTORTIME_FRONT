@@ -8,16 +8,19 @@ import { Observable } from 'rxjs';
 })
 export class DoctorEndpointService {
   private url: string = 'https://doctortime-api.onrender.com/doctor';
-  private pageable: string = '?page=0&size=1&sort=%5B%22CRM%22%5D';
 
   constructor(private http: HttpClient) {}
+
   getBySpecialty(
     specialty: string,
     page: number,
     size: number
   ): Observable<DoctorResponse[]> {
+    console.log(specialty);
+
+    const pageable: string = `?page=${page}&size=${size}&sort=%5B%22CRM%22%5D`;
     return this.http.get<DoctorResponse[]>(
-      `${this.url}/specialty/${specialty}`
+      `${this.url}/specialty/${specialty}${pageable}`
     );
   }
 }
