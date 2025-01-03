@@ -19,9 +19,11 @@ export class HeaderComponent implements OnInit {
   }
   onClick() {
     this.isOpen = !this.isOpen;
-    this.sharedMenu.setState(this.isOpen);
+    this.sharedMenu.setOpenMenu(this.isOpen);
   }
   checkLoggin() {
-    this.isLogged = sessionStorage.getItem('token') ? true : false;
+    this.sharedMenu
+      .getShowIcon()
+      .subscribe((result) => (this.isLogged = result));
   }
 }

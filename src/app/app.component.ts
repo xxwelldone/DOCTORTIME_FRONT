@@ -25,6 +25,6 @@ export class AppComponent implements OnInit {
   constructor(private sharedMenu: SharedMenuService) {}
   isOpen!: Observable<boolean>;
   ngOnInit(): void {
-    this.isOpen = this.sharedMenu.getState();
+    this.isOpen = this.sharedMenu.getOpenMenu();
   }
 }

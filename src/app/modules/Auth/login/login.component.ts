@@ -8,6 +8,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { SharedMenuService } from '../../../services/shared-menu.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,11 @@ import {
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private sharedMenu: SharedMenuService
+  ) {}
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
@@ -29,6 +34,7 @@ export class LoginComponent {
         sessionStorage.setItem('token', response.token);
       },
       complete: () => {
+        this.sharedMenu.setShowIcon(true);
         this.router.navigate(['home']);
       },
       error: (err) => {

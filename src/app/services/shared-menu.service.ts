@@ -6,13 +6,21 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class SharedMenuService {
   public isOpen: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  public showIcon: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor() {}
 
-  getState(): Observable<boolean> {
+  getOpenMenu(): Observable<boolean> {
     return this.isOpen.asObservable();
   }
-  setState(isOpen: boolean) {
+  setOpenMenu(isOpen: boolean) {
     this.isOpen.next(isOpen);
+  }
+
+  getShowIcon(): Observable<boolean> {
+    return this.showIcon.asObservable();
+  }
+  setShowIcon(showIcon: boolean) {
+    this.showIcon.next(showIcon);
   }
 }
