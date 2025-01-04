@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CardSelectionComponent } from '../card-selection/card-selection.component';
-import { DoctorEndpointService } from '../../services/doctor-endpoint.service';
+import { DoctorEndpointService } from '../../../services/doctor-endpoint.service';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { DoctorResponse } from '../../models/Doctor/doctor-response';
-import { SharedAppointmentService } from '../../services/shared-appointment.service';
-import { SharedAppointment } from '../../models/Appointment/SharedAppointment';
+import { DoctorResponse } from '../../../models/Doctor/doctor-response';
+import { SharedAppointmentService } from '../../../services/shared-appointment.service';
+import { SharedAppointment } from '../../../models/Appointment/SharedAppointment';
 
 @Component({
   selector: 'app-selection',

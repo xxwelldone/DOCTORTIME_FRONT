@@ -1,0 +1,32 @@
+<section class="bg">
+    <div class="container">
+        <form class="form" [formGroup]="myinfoForm">
+            <div class="my-info">
+                <img class="my-info-icon" src="assets/icons/myinfo.svg" alt="" />
+                <h2 class="my-info-title">Meus dados</h2>
+            </div>
+
+            <div class="data">
+                <div class="input-field">
+                    <label for="name">Nome completo</label>
+                    <input name="name" id="name" formControlName="name"
+                        [ngClass]="{'enabled': myinfoForm.get('name')?.enabled}">
+                    <label for="address">Endereço</label>
+                    <input name="address" id="address" formControlName="address"
+                        [ngClass]="{'enabled': myinfoForm.get('address')?.enabled}">
+                    <label for="cpf">CPF</label>
+                    <input name="cpf" id="cpf" formControlName="cpf">
+                    <label for="email">E-mail</label>
+                    <input name="email" id="email" formControlName="email" type="email">
+                </div>
+            </div>
+
+            <div class="actions">
+                <button class="btn" (click)="onEdit()">Editar</button>
+                <button class="btn">
+                    Nova senha
+                </button>
+            </div>
+        </form>
+    </div>
+</section>

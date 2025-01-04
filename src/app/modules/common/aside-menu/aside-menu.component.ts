@@ -16,7 +16,11 @@ export class AsideMenuComponent {
       text: 'Área do usuário',
       route: '/home',
     },
-    { icon: '/assets/icons/data.svg', text: 'Meus dados', route: '/myinfo' },
+    {
+      icon: '/assets/icons/data.svg',
+      text: 'Meus dados',
+      route: '/home/myinfo',
+    },
     { icon: '/assets/icons/logout.svg', text: 'Sair', route: '/logout' },
   ];
 }

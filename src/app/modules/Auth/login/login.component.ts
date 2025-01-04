@@ -32,6 +32,7 @@ export class LoginComponent {
     this.auth.login(this.loginForm.getRawValue()).subscribe({
       next: (response) => {
         sessionStorage.setItem('token', response.token);
+        sessionStorage.setItem('email', response.email);
       },
       complete: () => {
         this.sharedMenu.setShowIcon(true);

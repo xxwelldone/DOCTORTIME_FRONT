@@ -5,5 +5,4 @@ export interface UserResponse {
   address: string;
   cpf: string;
   email: string;
-  appointments: AppointmentResponse[];
 }

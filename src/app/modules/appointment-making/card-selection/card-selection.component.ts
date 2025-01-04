@@ -6,12 +6,12 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AppointmentRequest } from '../../models/Appointment/AppointmentRequest';
-import { SharedAppointment } from '../../models/Appointment/SharedAppointment';
+import { AppointmentRequest } from '../../../models/Appointment/AppointmentRequest';
+import { SharedAppointment } from '../../../models/Appointment/SharedAppointment';
 import { CommonModule } from '@angular/common';
-import { DoctorResponse } from '../../models/Doctor/doctor-response';
-import { SharedAppointmentService } from '../../services/shared-appointment.service';
-import { AppointmentEndpointService } from '../../services/appointment-endpoint.service';
+import { DoctorResponse } from '../../../models/Doctor/doctor-response';
+import { SharedAppointmentService } from '../../../services/shared-appointment.service';
+import { AppointmentEndpointService } from '../../../services/appointment-endpoint.service';
 import { Router } from '@angular/router';
 
 @Component({

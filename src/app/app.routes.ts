@@ -6,9 +6,10 @@ import { ProfileSignupComponent } from './modules/Auth/profile-signup/profile-si
 import { UserSignUpComponent } from './modules/Auth/user-sign-up/user-sign-up.component';
 import { WorkerSignUpComponent } from './modules/Auth/worker-sign-up/worker-sign-up.component';
 import { MainComponent } from './modules/main/main.component';
-import { MakeAppointmentComponent } from './modules/make-appointment/make-appointment.component';
+import { MakeAppointmentComponent } from './modules/appointment-making/make-appointment/make-appointment.component';
 import path from 'path';
-import { SelectionComponent } from './modules/selection/selection.component';
+import { SelectionComponent } from './modules/appointment-making/selection/selection.component';
+import { MyinfoComponent } from './modules/myinfo/myinfo.component';
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent, pathMatch: 'full' },
@@ -40,6 +41,7 @@ export const routes: Routes = [
           { path: 'selection', component: SelectionComponent },
         ],
       },
+      { path: 'myinfo', component: MyinfoComponent },
     ],
   },
   { path: '**', redirectTo: '' },
