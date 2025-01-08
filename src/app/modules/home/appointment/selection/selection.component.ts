@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
+import { DoctorEndpointService } from '../../../../services/doctor-endpoint.service';
+import { DoctorResponse } from '../../../../models/Doctor/doctor-response';
+import { SharedAppointmentService } from '../../../../services/shared-appointment.service';
+import { SharedAppointment } from '../../../../models/Appointment/SharedAppointment';
+import { Router } from '@angular/router';
 import { CardSelectionComponent } from '../card-selection/card-selection.component';
-import { DoctorEndpointService } from '../../../services/doctor-endpoint.service';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { DoctorResponse } from '../../../models/Doctor/doctor-response';
-import { SharedAppointmentService } from '../../../services/shared-appointment.service';
-import { SharedAppointment } from '../../../models/Appointment/SharedAppointment';
 
 @Component({
   selector: 'app-selection',
@@ -19,7 +20,8 @@ export class SelectionComponent implements OnInit {
   doctorArray!: DoctorResponse[];
   constructor(
     private doctorApi: DoctorEndpointService,
-    private sharedAppointmentService: SharedAppointmentService
+    private sharedAppointmentService: SharedAppointmentService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -33,5 +35,8 @@ export class SelectionComponent implements OnInit {
       .subscribe((result) => {
         this.doctorArray = result;
       });
+  }
+  onBack() {
+    this.router.navigate(['/home/makeappointment']);
   }
 }

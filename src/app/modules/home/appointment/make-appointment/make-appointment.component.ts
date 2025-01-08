@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SharedAppointmentService } from '../../../services/shared-appointment.service';
+import { SharedAppointmentService } from '../../../../services/shared-appointment.service';
 
 @Component({
   selector: 'app-make-appointment',

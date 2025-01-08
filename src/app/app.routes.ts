@@ -1,48 +1,23 @@
 import { Routes } from '@angular/router';
-import { LandingPageComponent } from './modules/landing/landing-page/landing-page.component';
-import { LoginComponent } from './modules/Auth/login/login.component';
-
-import { ProfileSignupComponent } from './modules/Auth/profile-signup/profile-signup.component';
-import { UserSignUpComponent } from './modules/Auth/user-sign-up/user-sign-up.component';
-import { WorkerSignUpComponent } from './modules/Auth/worker-sign-up/worker-sign-up.component';
-import { MainComponent } from './modules/main/main.component';
-import { MakeAppointmentComponent } from './modules/appointment-making/make-appointment/make-appointment.component';
-import path from 'path';
-import { SelectionComponent } from './modules/appointment-making/selection/selection.component';
-import { MyinfoComponent } from './modules/myinfo/myinfo.component';
 
 export const routes: Routes = [
-  { path: '', component: LandingPageComponent, pathMatch: 'full' },
+  {
+    path: '',
+    loadChildren: () =>
+      import('../app/modules/landing/landing.routes').then(
+        (r) => r.landing_routes
+      ),
+    pathMatch: 'full',
+  },
   {
     path: 'auth',
-    children: [
-      { path: 'login', component: LoginComponent },
-      {
-        path: 'signup',
-        children: [
-          {
-            path: '',
-            component: ProfileSignupComponent,
-          },
-          { path: 'user', component: UserSignUpComponent },
-          { path: 'worker', component: WorkerSignUpComponent },
-        ],
-      },
-    ],
+    loadChildren: () =>
+      import('./modules/Auth/auth.routes').then((r) => r.Auth_routes),
   },
   {
     path: 'home',
-    children: [
-      { path: '', component: MainComponent },
-      {
-        path: 'makeappointment',
-        children: [
-          { path: '', component: MakeAppointmentComponent },
-          { path: 'selection', component: SelectionComponent },
-        ],
-      },
-      { path: 'myinfo', component: MyinfoComponent },
-    ],
+    loadChildren: () =>
+      import('./modules/home/home.routes').then((r) => r.home_routes),
   },
   { path: '**', redirectTo: '' },
 ];

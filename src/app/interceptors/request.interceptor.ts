@@ -3,13 +3,13 @@ import {
   HttpInterceptorFn,
   HttpStatusCode,
 } from '@angular/common/http';
-import { Inject, inject } from '@angular/core';
+import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 
 export const requestInterceptor: HttpInterceptorFn = (req, next) => {
   const token = sessionStorage.getItem('token');
-  const router = Inject(Router);
+  const router = inject(Router);
   if (req.url.includes('auth')) {
     return next(req);
   }

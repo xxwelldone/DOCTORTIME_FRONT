@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { CarouselComponent } from '../common/carousel/carousel.component';
-import { CardOptionComponent } from '../landing/card-option/card-option.component';
-import { OptionComponent } from '../common/option/option.component';
+import { Component, OnInit } from '@angular/core';
+import { CarouselComponent } from '../../common/carousel/carousel.component';
+import { CardOptionComponent } from '../../landing/card-option/card-option.component';
+import { OptionComponent } from '../../common/option/option.component';
+import { UserEndpointService } from '../../../services/user-endpoint.service';
 
 @Component({
   selector: 'app-main',
@@ -10,7 +11,8 @@ import { OptionComponent } from '../common/option/option.component';
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
 })
-export class MainComponent {
+export class MainComponent implements OnInit {
+  public username!: string;
   UserOptions: { text: string; url: string; imgPath: string }[] = [
     {
       text: 'Minhas consultas',
@@ -29,7 +31,7 @@ export class MainComponent {
     },
     {
       text: 'Meu dados',
-      url: '',
+      url: '/home/myinfo',
       imgPath: '/assets/icons/mydata.svg',
     },
     {
@@ -38,4 +40,10 @@ export class MainComponent {
       imgPath: '/assets/icons/logout-white.svg',
     },
   ];
+  constructor(private userAPI: UserEndpointService) {}
+  ngOnInit(): void {
+    this.userAPI.getUserInfo().subscribe((results) => {
+      this.username = results.name;
+    });
+  }
 }

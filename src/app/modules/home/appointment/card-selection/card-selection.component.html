@@ -17,12 +17,18 @@
     <ul class="time" (click)="$event.stopPropagation()">
       @for (item of availableTimes; track $index) {
 
-      <li
-        class="time-option"
-        [ngClass]="{ selected: item === time }"
-        (click)="selectTime(item)"
-      >
-        {{ item }}
+      <li>
+        <button
+          class="time-option"
+          [ngClass]="{
+            selected: item.time === time,
+          
+          }"
+          (click)="selectTime(item.time)"
+          [disabled]="item.available"
+        >
+          {{ item.time }}
+        </button>
       </li>
       }
     </ul>
