@@ -1,0 +1,91 @@
+.container {
+  background-color: var(--dark-ice);
+  width: 266px;
+  padding: 22px;
+}
+.agenda {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.doctor-img {
+  border-radius: 100%;
+  border: 1px solid var(--white);
+  max-width: 68px;
+}
+.doctor-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.doctor-crm {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+
+.agenda-status,
+.agenda-time,
+.agenda-modality {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--black);
+}
+.agenda-date,
+.doctor-address {
+  font-size: 0.8rem;
+  color: var(--black);
+}
+.actions {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+}
+.action-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: var(--gray);
+}
+.status {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.scheduled::before {
+  content: " ";
+  display: inline-flex;
+  border-radius: 100%;
+  width: 16px;
+  height: 16px;
+  background-color: var(--scheduled);
+}
+.canceled::before {
+  content: " ";
+  display: inline-flex;
+  border-radius: 100%;
+  width: 16px;
+  height: 16px;
+  background-color: var(--canceled);
+}
+
+@media (min-width: 1024px) {
+  .container {
+    width: 596px;
+    border-radius: 16px;
+  }
+  .info {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}

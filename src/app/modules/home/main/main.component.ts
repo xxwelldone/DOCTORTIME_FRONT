@@ -16,7 +16,7 @@ export class MainComponent implements OnInit {
   UserOptions: { text: string; url: string; imgPath: string }[] = [
     {
       text: 'Minhas consultas',
-      url: '',
+      url: '/home/myagenda',
       imgPath: '/assets/icons/myappointments.svg',
     },
     {

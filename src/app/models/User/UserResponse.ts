@@ -1,5 +1,3 @@
-import { AppointmentResponse } from '../Appointment/AppointmentResponse';
-
 export interface UserResponse {
   id: string;
   address: string;

@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="agenda">
+    <div class="info">
+      <div class="doctor-info">
+        <img class="doctor-img" [src]="appointment.doctor.photoUrl" alt="" />
+        <p class="doctor-name">{{ appointment.doctor.name }}</p>
+        <p class="doctor-crm">{{ appointment.doctor.CRM }}</p>
+        <p class="doctor-address">{{ appointment.doctor.address }}</p>
+      </div>
+      <div class="agenda-info">
+        <div class="status canceled">
+          <p class="agenda-status">{{ appointment.status }}</p>
+        </div>
+
+        <p class="agenda-date">{{ date }}</p>
+        <p class="agenda-time">{{ time }}</p>
+        <p class="agenda-modality">{{ appointment.modality }}</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="action-btn">
+        <img src="assets/icons/cancel.svg" alt="" />
+      </button>
+      <button class="action-btn">
+        <img src="assets/icons/edit.svg" alt="" />
+      </button>
+    </div>
+  </div>
+</div>

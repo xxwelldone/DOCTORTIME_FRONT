@@ -18,4 +18,9 @@ export const home_routes: Routes = [
     loadChildren: () =>
       import('../home/mydata/mydata.routes').then((r) => r.mydata_routes),
   },
+  {
+    path: 'myagenda',
+    loadChildren: () =>
+      import('../home/my-agenda/agenda.routes').then((r) => r.agenda_routes),
+  },
 ];

@@ -11,6 +11,8 @@
   --dark-gray: #424242;
   --gray: #d9d9d9;
   --red: #ff2428;
+  --scheduled: #0fe3f2;
+  --canceled: #ffab24;
 }
 *,
 *::before,

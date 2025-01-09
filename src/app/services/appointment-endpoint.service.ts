@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AppointmentRequest } from '../models/Appointment/AppointmentRequest';
 import { DoctorAppointments } from '../models/Appointment/DoctorAppointment';
 import { Observable } from 'rxjs';
+import { AppointmentResponse } from '../models/Appointment/AppointmentResponse';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +18,11 @@ export class AppointmentEndpointService {
   doctorappointments(doctorId: string): Observable<DoctorAppointments[]> {
     return this.http.get<DoctorAppointments[]>(
       `${this.url}/doctorappointments/${doctorId}`
+    );
+  }
+  appointments(): Observable<AppointmentResponse[]> {
+    return this.http.get<AppointmentResponse[]>(
+      `${this.url}/AppointmentOfUser`
     );
   }
 }

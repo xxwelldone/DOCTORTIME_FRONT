@@ -8,7 +8,10 @@ import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 
 export const requestInterceptor: HttpInterceptorFn = (req, next) => {
-  const token = sessionStorage.getItem('token');
+  let token = null;
+  if (typeof sessionStorage !== 'undefined') {
+    token = sessionStorage.getItem('token');
+  }
   const router = inject(Router);
   if (req.url.includes('auth')) {
     return next(req);

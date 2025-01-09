@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.agenda {
+  display: flex;
+  flex-direction: column;
+  gap: 62px;
+  margin: 64px;
+}
+.agenda-header {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 14px;
+  margin: 0px 16px;
+}
+.agenda-title {
+  font-size: 1rem;
+}
+
+.back-btn {
+  color: var(--white);
+  width: 128px;
+  height: 48px;
+  background-color: var(--dark-blue);
+  border-radius: 4px;
+}
+.actions {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 28px;
+  margin: 0px 16px;
+}
+
+.data {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  overflow: scroll;
+}
+
+@media (min-width: 1014px) {
+  .container {
+    background-color: var(--white);
+    max-width: 716px;
+    border-radius: 42px;
+  }
+  .bg {
+    background-color: var(--ice);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 110px;
+  }
+  .data {
+    width: initial;
+    overflow: initial;
+    flex-direction: column;
+  }
+  .agenda-header {
+    margin: initial;
+  }
+  .actions {
+    margin: initial;
+  }
+}
