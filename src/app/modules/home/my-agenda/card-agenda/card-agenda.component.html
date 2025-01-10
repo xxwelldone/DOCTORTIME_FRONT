@@ -4,11 +4,17 @@
       <div class="doctor-info">
         <img class="doctor-img" [src]="appointment.doctor.photoUrl" alt="" />
         <p class="doctor-name">{{ appointment.doctor.name }}</p>
-        <p class="doctor-crm">{{ appointment.doctor.CRM }}</p>
+        <p class="doctor-crm">CRM {{ appointment.doctor.CRM }}</p>
         <p class="doctor-address">{{ appointment.doctor.address }}</p>
       </div>
       <div class="agenda-info">
-        <div class="status canceled">
+        <div
+          class="status"
+          [ngClass]="{
+            canceled: appointment.status == 'CANCELADO',
+            scheduled: appointment.status == 'AGENDADO'
+          }"
+        >
           <p class="agenda-status">{{ appointment.status }}</p>
         </div>
 
@@ -17,13 +23,28 @@
         <p class="agenda-modality">{{ appointment.modality }}</p>
       </div>
     </div>
+    @if (!(appointment.status!='AGENDADO')) {
     <div class="actions">
-      <button class="action-btn">
+      @if (!cancel) {
+      <button class="action-btn" (click)="onCancel()">
         <img src="assets/icons/cancel.svg" alt="" />
       </button>
-      <button class="action-btn">
+      }
+      <button class="action-btn" (click)="onEdit()">
         <img src="assets/icons/edit.svg" alt="" />
       </button>
     </div>
+    }
   </div>
+  @if(cancel) {
+  <div class="confirmation">
+    <div class="confirmation-item">
+      <p>Tem certeza que deseja cancelar consulta?</p>
+      <div class="actions">
+        <button class="btn blue" (click)="onConfirm()">Confirmar</button>
+        <button class="btn red" (click)="onReject()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+  }
 </div>

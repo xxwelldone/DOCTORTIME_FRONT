@@ -104,8 +104,6 @@ export class CardSelectionComponent implements OnInit {
       .doctorappointments(this.doctorDetails.id)
       .subscribe((result) => {
         this.nonAvailableDateTimes = result;
-        console.log(result);
-
         this.checkAvailability();
       });
   }
@@ -123,7 +121,6 @@ export class CardSelectionComponent implements OnInit {
     this.availableTimes.forEach((item) => {
       if (item.time == time) {
         item.available = true;
-        console.log(item);
       }
     });
   }

@@ -1,0 +1,76 @@
+<section class="bg">
+  <div class="container">
+    <div class="edit">
+      <div class="edit-header">
+        <img
+          class="edit-icon"
+          src="/assets/icons/stethoscope_blue.svg"
+          alt=""
+        />
+        <h2 class="edit-title">
+          Especialidade: {{ appointment.doctor.specialty }}
+        </h2>
+      </div>
+
+      <form class="data">
+        <div class="doctor">
+          <div class="doctor-profile">
+            <img
+              class="doctor-img"
+              [src]="appointment.doctor.photoUrl"
+              alt=""
+            />
+          </div>
+          <div class="doctor-info">
+            <p class="doctor-name">{{ appointment.doctor.name }}</p>
+            <p class="doctor-crm">CRM {{ appointment.doctor.CRM }}</p>
+            <p class="doctor-address">{{ appointment.doctor.address }}</p>
+          </div>
+        </div>
+        <div class="date-info">
+          <label for="date"></label>
+          <input type="date" name="date" id="date" />
+        </div>
+        <ul class="time">
+          @for (item of availableTimes; track $index) {
+          <li>
+            <button class="time-option" [disabled]="item.available">
+              {{ item.time }}
+            </button>
+          </li>
+          }
+        </ul>
+        <div class="modality">
+          <p class="modality-label">Modalidade</p>
+          <div class="modality-options">
+            <div class="modality-option">
+              <input
+                type="radio"
+                name="modality"
+                id="modality-1"
+                value="ONLINE"
+                formControlName="modality"
+              />
+              <label for="modality-1">Online</label>
+            </div>
+            <div class="modality-option">
+              <input
+                type="radio"
+                name="modality"
+                id="modality-2"
+                value="PRESENCIAL"
+                formControlName="modality"
+              />
+
+              <label for="modality-2">Presencial</label>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="actions">
+      <button class="btn dark-blue">Confirmar</button>
+      <button class="btn red">Cancelar</button>
+    </div>
+  </div>
+</section>

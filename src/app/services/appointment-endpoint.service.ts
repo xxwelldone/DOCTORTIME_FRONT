@@ -4,6 +4,7 @@ import { AppointmentRequest } from '../models/Appointment/AppointmentRequest';
 import { DoctorAppointments } from '../models/Appointment/DoctorAppointment';
 import { Observable } from 'rxjs';
 import { AppointmentResponse } from '../models/Appointment/AppointmentResponse';
+import { Status } from '../models/Appointment/status';
 
 @Injectable({
   providedIn: 'root',
@@ -24,5 +25,13 @@ export class AppointmentEndpointService {
     return this.http.get<AppointmentResponse[]>(
       `${this.url}/AppointmentOfUser`
     );
+  }
+  cancel(appointmentId: string, status: Status) {
+    return this.http.put<AppointmentResponse>(`${this.url}/${appointmentId}`, {
+      status,
+    });
+  }
+  appointmentById(id: string): Observable<AppointmentResponse> {
+    return this.http.get<AppointmentResponse>(`${this.url}/${id}`);
   }
 }
