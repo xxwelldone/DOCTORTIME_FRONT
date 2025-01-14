@@ -24,20 +24,7 @@ export const requestInterceptor: HttpInterceptorFn = (req, next) => {
 
   return next(newReq).pipe(
     catchError((err) => {
-      if (err instanceof HttpErrorResponse) {
-        if (
-          err.status === HttpStatusCode.Unauthorized ||
-          err.status === HttpStatusCode.Forbidden
-        ) {
-          router.navigate(['/auth/login']);
-        }
-        if (err.status === HttpStatusCode.InternalServerError) {
-          console.log('Erro no servidor');
-        }
-        if (err.status === HttpStatusCode.NotFound) {
-          console.log('Url não encontrada');
-        }
-      }
+      router.navigate(['auth/login']);
       return throwError(() => err);
     })
   );
