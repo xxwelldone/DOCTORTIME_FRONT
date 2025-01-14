@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -16,11 +16,16 @@ import { SharedAppointmentService } from '../../../../services/shared-appointmen
   templateUrl: './make-appointment.component.html',
   styleUrl: './make-appointment.component.css',
 })
-export class MakeAppointmentComponent {
+export class MakeAppointmentComponent implements OnInit {
+  minDate!: string;
   constructor(
     private router: Router,
     private sharedAppointmentService: SharedAppointmentService
   ) {}
+  ngOnInit(): void {
+    const today: Date = new Date();
+    this.minDate = today.toISOString().split('T')[0];
+  }
   public arraySpecialty: string[] = [
     'CARDIOLOGIA',
     'DERMATOLOGIA',

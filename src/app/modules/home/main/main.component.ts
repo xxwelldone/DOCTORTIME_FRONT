@@ -24,11 +24,11 @@ export class MainComponent implements OnInit {
       url: '/home/makeappointment',
       imgPath: '/assets/icons/appointment.svg',
     },
-    {
-      text: 'Especialidades',
-      url: '',
-      imgPath: '/assets/icons/stethoscope_white.png',
-    },
+    // {
+    //   text: 'Especialidades',
+    //   url: '/home/',
+    //   imgPath: '/assets/icons/stethoscope_white.png',
+    // },
     {
       text: 'Meu dados',
       url: '/home/myinfo',
@@ -36,7 +36,7 @@ export class MainComponent implements OnInit {
     },
     {
       text: 'Sair',
-      url: '',
+      url: '/home/',
       imgPath: '/assets/icons/logout-white.svg',
     },
   ];

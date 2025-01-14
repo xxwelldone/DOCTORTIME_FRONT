@@ -104,7 +104,7 @@
   padding-inline: 8px;
 }
 input {
-  background-color: var(--ice);
+  background-color: var(--white);
   border: 2px solid var(--light-blue);
   height: 38px;
   border-radius: 4px;
@@ -112,8 +112,10 @@ input {
   text-align: center;
 }
 .modality {
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
+  gap: 12px;
 }
 .modality-options {
   display: flex;
@@ -146,6 +148,9 @@ input {
 }
 .modality-option:has(input[type="radio"]:checked) {
   background-color: var(--light-blue);
+}
+.selected {
+  background-color: var(--dark-blue);
 }
 @media (min-width: 1014px) {
   .container {

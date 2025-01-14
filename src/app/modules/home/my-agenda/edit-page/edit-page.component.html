@@ -8,11 +8,12 @@
           alt=""
         />
         <h2 class="edit-title">
-          Especialidade: {{ appointment.doctor.specialty }}
+          Especialidade:
+          {{ appointment.doctor.specialty }}
         </h2>
       </div>
 
-      <form class="data">
+      <form class="data" [formGroup]="appointmentForm">
         <div class="doctor">
           <div class="doctor-profile">
             <img
@@ -29,12 +30,27 @@
         </div>
         <div class="date-info">
           <label for="date"></label>
-          <input type="date" name="date" id="date" />
+          <input
+            type="date"
+            name="date"
+            id="date"
+            formControlName="date"
+            [min]="minDate"
+          />
         </div>
         <ul class="time">
           @for (item of availableTimes; track $index) {
           <li>
-            <button class="time-option" [disabled]="item.available">
+            <button
+              class="time-option"
+              [disabled]="item.available"
+              [ngClass]="{
+              selected: item.time === selectedTime,
+              
+            
+            }"
+              (click)="selectTime(item.time)"
+            >
               {{ item.time }}
             </button>
           </li>
@@ -69,8 +85,8 @@
       </form>
     </div>
     <div class="actions">
-      <button class="btn dark-blue">Confirmar</button>
-      <button class="btn red">Cancelar</button>
+      <button class="btn dark-blue" (click)="onConfirm()">Confirmar</button>
+      <button class="btn red" (click)="onCancel()">Cancelar</button>
     </div>
   </div>
 </section>

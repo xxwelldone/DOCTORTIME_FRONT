@@ -31,6 +31,12 @@ export class AppointmentEndpointService {
       status,
     });
   }
+  edit(appointmentId: string, date: string, modality: string) {
+    return this.http.put<AppointmentResponse>(`${this.url}/${appointmentId}`, {
+      date,
+      modality,
+    });
+  }
   appointmentById(id: string): Observable<AppointmentResponse> {
     return this.http.get<AppointmentResponse>(`${this.url}/${id}`);
   }
