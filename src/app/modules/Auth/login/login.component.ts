@@ -9,6 +9,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { SharedMenuService } from '../../../services/shared-menu.service';
+import { Store } from '@ngrx/store';
+import { setUser } from '../../../store/auth.action';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +23,8 @@ export class LoginComponent {
   constructor(
     private auth: AuthService,
     private router: Router,
-    private sharedMenu: SharedMenuService
+    private sharedMenu: SharedMenuService,
+    private store: Store
   ) {}
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required]),
@@ -31,8 +34,10 @@ export class LoginComponent {
   onLogin() {
     this.auth.login(this.loginForm.getRawValue()).subscribe({
       next: (response) => {
-        sessionStorage.setItem('token', response.token);
-        sessionStorage.setItem('email', response.email);
+        this.store.dispatch(setUser({ user: response }));
+
+        // sessionStorage.setItem('token', response.token);
+        // sessionStorage.setItem('email', response.email);
       },
       complete: () => {
         this.sharedMenu.setShowIcon(true);

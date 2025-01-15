@@ -1,4 +1,4 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom, isDevMode } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -10,6 +10,9 @@ import {
 } from '@angular/common/http';
 import { provideEnvironmentNgxMask, provideNgxMask } from 'ngx-mask';
 import { requestInterceptor } from './interceptors/request.interceptor';
+import { provideStore, StoreModule } from '@ngrx/store';
+import { authReducers } from './store/auth.reducer';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,5 +20,10 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     provideHttpClient(withFetch(), withInterceptors([requestInterceptor])),
     provideEnvironmentNgxMask(),
-  ],
+    provideStore(),
+    importProvidersFrom(StoreModule.forRoot({
+        user: authReducers,
+    })),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
+],
 };
