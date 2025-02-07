@@ -13,8 +13,11 @@ export class AppointmentEndpointService {
   private url: string = 'https://doctortime-api.onrender.com/appointments';
   constructor(private http: HttpClient) {}
 
-  create(appointment: AppointmentRequest) {
-    return this.http.post(`${this.url}/create`, appointment);
+  create(appointment: AppointmentRequest): Observable<AppointmentResponse> {
+    return this.http.post<AppointmentResponse>(
+      `${this.url}/create`,
+      appointment
+    );
   }
   doctorappointments(doctorId: string): Observable<DoctorAppointments[]> {
     return this.http.get<DoctorAppointments[]>(
