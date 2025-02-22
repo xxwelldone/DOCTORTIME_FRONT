@@ -15,5 +15,5 @@ export const selectUserToken = createSelector(
 );
 export const selectRole = createSelector(
   selectUserState,
-  (state) => state.user?.token
+  (state) => state.user?.role
 );

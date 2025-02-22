@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CardOptionComponent } from '../card-option/card-option.component';
 import { PromotionComponent } from '../promotion/promotion.component';
 import { CarouselComponent } from '../../common/carousel/carousel.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',

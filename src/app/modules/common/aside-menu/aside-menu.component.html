@@ -1,10 +1,16 @@
 <div class="menu">
   <ul class="menu-list">
     @for (item of menuOptions; track $index) {
+    @if(item.route.includes("logout")){
+    <li class="menu-item" [routerLink]="[item.route]" (click)="logout()">
+      <img class="item-img" [src]="item.icon" alt="" srcset="" />
+      <p class="item-text">{{ item.text }}</p>
+    </li>
+    } @else{ @if (item.role == role) {
     <li class="menu-item" [routerLink]="[item.route]">
       <img class="item-img" [src]="item.icon" alt="" srcset="" />
       <p class="item-text">{{ item.text }}</p>
     </li>
-    }
+    } } }
   </ul>
 </div>
