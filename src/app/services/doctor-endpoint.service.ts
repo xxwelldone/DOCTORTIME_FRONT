@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DoctorResponse } from '../models/Doctor/doctor-response';
 import { Observable } from 'rxjs';
+import { createDoctorDto } from '../models/Doctor/createDoctorDto';
 
 @Injectable({
   providedIn: 'root',
@@ -16,11 +17,13 @@ export class DoctorEndpointService {
     page: number,
     size: number
   ): Observable<DoctorResponse[]> {
-    console.log(specialty);
-
     const pageable: string = `?page=${page}&size=${size}&sort=%5B%22CRM%22%5D`;
     return this.http.get<DoctorResponse[]>(
       `${this.url}/specialty/${specialty}${pageable}`
     );
+  }
+
+  create(doctor: createDoctorDto): Observable<DoctorResponse> {
+    return this.http.post<DoctorResponse>(`${this.url}/create`, doctor);
   }
 }

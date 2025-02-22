@@ -3,13 +3,20 @@
   <h1 class="title">Bem vindo, {{ username }}</h1>
   <div class="container">
     <div class="painel">
-      @for (item of UserOptions; track $index) {
+      @if (role == 'USER') { @for (item of UserOptions; track $index) {
       <app-option
         [content]="item.text"
         [pathIMG]="item.imgPath"
         [pathURL]="item.url"
       ></app-option>
-      }
+      } } @else if (role == 'WORKER') { @for (item of WorkerOptions; track
+      $index) {
+      <app-option
+        [content]="item.text"
+        [pathIMG]="item.imgPath"
+        [pathURL]="item.url"
+      ></app-option>
+      } }
     </div>
   </div>
 </section>

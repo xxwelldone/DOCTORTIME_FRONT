@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { UserEndpointService } from '../../../../services/user-endpoint.service';
 import { UserPut } from '../../../../models/User/UserPut';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-myinfo',
@@ -54,21 +55,28 @@ export class MyinfoComponent implements OnInit {
     return obj;
   }
   private putPersonalInfo(data: UserPut) {
-    this.userAPI.putInfo(this.userId, data).subscribe({
-      next: (response) => {
-        this.myinfoForm.patchValue({
-          name: response.name,
-          address: response.address,
-          cpf: response.cpf,
-          email: response.email,
-        });
-      },
-      complete: () => {
-        this.isEditing = false;
-        this.myinfoForm.get('name')?.disable();
-        this.myinfoForm.get('address')?.disable();
-      },
-    });
+    this.userAPI
+      .putInfo(this.userId, data)
+      .pipe(take(1))
+      .subscribe({
+        next: (response) => {
+          console.log(response);
+
+          this.myinfoForm.patchValue({
+            name: response.name,
+            address: response.address,
+            cpf: response.cpf,
+            email: response.email,
+          });
+        },
+        complete: () => {
+          console.log('completou');
+
+          this.isEditing = false;
+          this.myinfoForm.get('name')?.disable();
+          this.myinfoForm.get('address')?.disable();
+        },
+      });
   }
   public onNewPassword() {
     this.router.navigate(['/home/myinfo/password']);

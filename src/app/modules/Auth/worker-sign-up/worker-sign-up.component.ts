@@ -9,9 +9,9 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
-import { NgxMaskDirective } from 'ngx-mask';
 import { WorkerEndpointService } from '../../../services/worker-endpoint.service';
 import { Router } from '@angular/router';
+import { NormalizeKeysService } from '../../../services/normalize-keys.service';
 
 @Component({
   selector: 'app-worker-sign-up',
@@ -23,7 +23,8 @@ import { Router } from '@angular/router';
 export class WorkerSignUpComponent implements OnInit {
   constructor(
     private workerAPI: WorkerEndpointService,
-    private router: Router
+    private router: Router,
+    private normalizer: NormalizeKeysService
   ) {}
   ngOnInit(): void {
     this.workerForm.setValidators(
@@ -54,8 +55,7 @@ export class WorkerSignUpComponent implements OnInit {
 
   destructuringForm() {
     const obj = this.workerForm.getRawValue();
-    const { confirm, ...payload } = obj;
-    console.log(payload);
+    const { confirmation, ...payload } = obj;
 
     return payload;
   }

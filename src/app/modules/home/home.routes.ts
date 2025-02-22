@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
+import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 
 export const home_routes: Routes = [
   {
@@ -22,5 +23,9 @@ export const home_routes: Routes = [
     path: 'myagenda',
     loadChildren: () =>
       import('../home/my-agenda/agenda.routes').then((r) => r.agenda_routes),
+  },
+  {
+    path: 'adddoctor',
+    component: AddDoctorComponent,
   },
 ];

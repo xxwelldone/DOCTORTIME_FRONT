@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
-  AsyncValidatorFn,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
@@ -11,7 +10,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { ZipCodeService } from '../../../services/zip-code.service';
-import { catchError, map, Observable } from 'rxjs';
 import { zipCode } from '../../../models/zipCode';
 import { NgxMaskDirective } from 'ngx-mask';
 import { UserEndpointService } from '../../../services/user-endpoint.service';

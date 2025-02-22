@@ -13,3 +13,7 @@ export const selectUserToken = createSelector(
   selectUserState,
   (state) => state.user?.token
 );
+export const selectRole = createSelector(
+  selectUserState,
+  (state) => state.user?.token
+);

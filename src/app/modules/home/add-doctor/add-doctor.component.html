@@ -1,0 +1,56 @@
+<section class="bg">
+  <div class="container">
+    <form class="form" [formGroup]="doctorForm">
+      <div class="header-add-doctor">
+        <img class="add-doctor-icon" src="assets/icons/adddoctor.svg" alt="" />
+        <h2 class="add-doctor-title">Cadastro: Adicionar médico</h2>
+      </div>
+      <div class="data">
+        <div class="input-field">
+          <label for="name">Nome completo</label>
+          <input type="text" id="name" formControlName="name" />
+        </div>
+        <div class="input-field">
+          <label for="photoUrl">URL da foto</label>
+          <input type="text" id="url" formControlName="photoUrl" />
+        </div>
+        <div class="input-field">
+          <label for="CRM">CRM</label>
+          <input type="text" id="CRM" formControlName="CRM" />
+        </div>
+        <div class="input-field">
+          <label for="specialty">Especialidade</label>
+          <select name="specialty" id="specialty" formControlName="specialty">
+            @for (item of arraySpecialty; track $index) {
+            <option [value]="item">{{ item }}</option>
+            }
+          </select>
+        </div>
+        <div class="input-field">
+          <label for="address">Endereço</label>
+          <input type="email" id="address" formControlName="address" />
+        </div>
+        <div class="input-field">
+          <label for="email">E-mail</label>
+          <input type="text" id="email" formControlName="email" />
+        </div>
+        <div class="input-field">
+          <label for="password">Senha temporária</label>
+          <input type="password" id="confirmation" formControlName="password" />
+        </div>
+      </div>
+      <div class="actions">
+        <button class="next-btn" (click)="onBack()">VOLTAR</button>
+
+        <button
+          class="next-btn"
+          [disabled]="doctorForm.invalid"
+          [ngClass]="{ disabled: doctorForm.invalid }"
+          (click)="onSubmit()"
+        >
+          CONFIRMAR
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
