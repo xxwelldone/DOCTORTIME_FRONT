@@ -8,18 +8,21 @@ import {
 } from '@angular/forms';
 import { DoctorEndpointService } from '../../../services/doctor-endpoint.service';
 import { Route, Router } from '@angular/router';
+import { NgxMaskDirective } from 'ngx-mask';
+import { ZipCodeService } from '../../../services/zip-code.service';
 
 @Component({
   selector: 'app-add-doctor',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, NgxMaskDirective],
   templateUrl: './add-doctor.component.html',
   styleUrl: './add-doctor.component.css',
 })
 export class AddDoctorComponent {
   constructor(
     private doctorAPI: DoctorEndpointService,
-    private router: Router
+    private router: Router,
+    private zipCodeService: ZipCodeService
   ) {}
   public arraySpecialty: string[] = [
     'CARDIOLOGIA',

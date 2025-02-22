@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { removeUser } from '../../../store/auth.action';
 import { switchMap, take } from 'rxjs';
 import { selectUserState } from '../../../store/auth.selectors';
+import { SharedMenuService } from '../../../services/shared-menu.service';
 
 @Component({
   selector: 'app-aside-menu',
@@ -14,7 +15,11 @@ import { selectUserState } from '../../../store/auth.selectors';
   styleUrl: './aside-menu.component.css',
 })
 export class AsideMenuComponent {
-  constructor(private notifier: RoleNotifierService, private store: Store) {}
+  constructor(
+    private notifier: RoleNotifierService,
+    private store: Store,
+    private sharedMenu: SharedMenuService
+  ) {}
 
   public role!: string;
   ngOnChanges(changes: SimpleChanges): void {
@@ -53,5 +58,7 @@ export class AsideMenuComponent {
 
   logout() {
     this.store.dispatch(removeUser());
+    this.sharedMenu.setShowIcon(false);
+    this.sharedMenu.setOpenMenu(false);
   }
 }
