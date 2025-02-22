@@ -5,13 +5,16 @@
         <img class="agenda-icon" src="assets/icons/agenda.svg" alt="" />
         <h2 class="agenda-title">Minhas consultas</h2>
       </div>
+      @if(agenda.length>0){
 
       <div class="data">
         @for (item of agenda; track $index) {
         <app-card-agenda [appointment]="item"></app-card-agenda>
         }
       </div>
-
+      } @else{
+      <div class="data">Não há agenda cadastrada.</div>
+      }
       <div class="actions">
         <button class="back-btn" (click)="onBack()">Voltar</button>
       </div>
