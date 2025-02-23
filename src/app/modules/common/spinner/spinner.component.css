@@ -1,0 +1,9 @@
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 64px;
+}
+* {
+  --mdc-circular-progress-active-indicator-color: #1db0ca;
+}

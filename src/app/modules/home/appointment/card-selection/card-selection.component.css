@@ -5,7 +5,7 @@
   align-items: center;
   gap: 40px;
   background-color: var(--dark-ice);
-  width: 688px;
+  width: 388px;
   padding: 10px;
   /* height: 96px; */
   border-radius: 16px;
@@ -85,4 +85,9 @@
 }
 .selected {
   background-color: var(--dark-blue);
+}
+@media (min-width: 1014px) {
+  .container {
+    width: 688px;
+  }
 }
