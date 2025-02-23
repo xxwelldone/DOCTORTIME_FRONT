@@ -1,6 +1,13 @@
 <div class="container">
-  <button [routerLink]="pathURL" class="btn">
+  @if(pathURL=='logout'){
+
+  <button [routerLink]="pathURL" class="btn" (click)="logout()">
     <img [src]="pathIMG" alt="" srcset="" class="btn-img" />
   </button>
   <p class="text">{{ content }}</p>
+  } @else {
+  <button [routerLink]="pathURL" class="btn">
+    <img [src]="pathIMG" alt="" srcset="" class="btn-img" />
+  </button>
+  }
 </div>

@@ -1,4 +1,8 @@
-import { ApplicationConfig, importProvidersFrom, isDevMode } from '@angular/core';
+import {
+  ApplicationConfig,
+  importProvidersFrom,
+  isDevMode,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -14,17 +18,24 @@ import { provideStore, StoreModule } from '@ngrx/store';
 import { authReducers } from './store/auth.reducer';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { loadingInterceptor } from './interceptors/loading.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideClientHydration(),
-    provideHttpClient(withFetch(), withInterceptors([requestInterceptor])),
+    provideHttpClient(
+      withFetch(),
+      withInterceptors([requestInterceptor, loadingInterceptor])
+    ),
     provideEnvironmentNgxMask(),
     provideStore(),
-    importProvidersFrom(StoreModule.forRoot({
+    importProvidersFrom(
+      StoreModule.forRoot({
         user: authReducers,
-    })),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }), provideAnimationsAsync()
-],
+      })
+    ),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideAnimationsAsync(),
+  ],
 };

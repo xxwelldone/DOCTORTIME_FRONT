@@ -6,6 +6,7 @@ import { UserEndpointService } from '../../../services/user-endpoint.service';
 import { WorkerEndpointService } from '../../../services/worker-endpoint.service';
 import { RoleNotifierService } from '../../../services/role-notifier.service';
 import { log } from 'console';
+import { removeUser } from '../../../store/auth.action';
 
 @Component({
   selector: 'app-main',
@@ -35,7 +36,7 @@ export class MainComponent implements OnInit {
     },
     {
       text: 'Sair',
-      url: '/home/',
+      url: 'logout',
       imgPath: '/assets/icons/logout-white.svg',
     },
   ];
@@ -46,6 +47,8 @@ export class MainComponent implements OnInit {
       imgPath: '/assets/icons/doctor.svg',
     },
   ];
+  store: any;
+  sharedMenu: any;
   constructor(
     private userAPI: UserEndpointService,
     private workerAPI: WorkerEndpointService,

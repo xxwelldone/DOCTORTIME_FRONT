@@ -4,7 +4,7 @@ import { HeaderComponent } from './modules/common/header/header.component';
 import { FooterComponent } from './modules/common/footer/footer.component';
 import { AsideMenuComponent } from './modules/common/aside-menu/aside-menu.component';
 import { SharedMenuService } from './services/shared-menu.service';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { LoadingService } from './services/loading.service';
 import { SpinnerComponent } from './modules/common/spinner/spinner.component';
@@ -31,12 +31,8 @@ export class AppComponent implements OnInit {
     private cdf: ChangeDetectorRef
   ) {}
   isOpen!: Observable<boolean>;
-  isLoading = this.loading.isLoading;
 
   ngOnInit(): void {
     this.isOpen = this.sharedMenu.getOpenMenu();
-  }
-  ngAfterViewInit(): void {
-    this.cdf.detectChanges();
   }
 }

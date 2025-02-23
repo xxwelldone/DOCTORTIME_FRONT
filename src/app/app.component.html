@@ -3,10 +3,8 @@
 
 <app-aside-menu></app-aside-menu>
 }
-@if(isLoading |async){
-<app-spinner></app-spinner>
-} @else {
+
 <router-outlet />
-}
+
 
 <app-footer></app-footer>
