@@ -3,8 +3,7 @@
 
 <app-aside-menu></app-aside-menu>
 }
-
+<app-spinner *ngIf="isLoading$ | async"></app-spinner>
 <router-outlet />
-
 
 <app-footer></app-footer>

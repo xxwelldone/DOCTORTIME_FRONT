@@ -27,11 +27,11 @@ export class AppComponent implements OnInit {
   title = 'doctortime';
   constructor(
     private sharedMenu: SharedMenuService,
-    private loading: LoadingService,
+    private loadingService: LoadingService,
     private cdf: ChangeDetectorRef
   ) {}
   isOpen!: Observable<boolean>;
-
+  isLoading$ = this.loadingService.isLoading$;
   ngOnInit(): void {
     this.isOpen = this.sharedMenu.getOpenMenu();
   }
